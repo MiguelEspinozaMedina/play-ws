@@ -469,15 +469,9 @@ publishTo in ThisBuild := Some(sonatypeDefaultResolver.value)
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
-  inquireVersions,
   runClean,
   runTest,
-  setReleaseVersion,
-  commitReleaseVersion,
-  tagRelease,
   releaseStepCommandAndRemaining("+publishSigned"),
-  setNextVersion,
-  commitNextVersion,
   releaseStepCommand("sonatypeRelease"),
   pushChanges
 )
